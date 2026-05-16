@@ -1,0 +1,9 @@
+{
+  "name": "galaxy-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npx -y serve . -p 3000",
+    "start": "npx -y serve . -p 3000"
+  }
+}
