@@ -30,8 +30,8 @@
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#timeline">Journey</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button id="audio-toggle" aria-label="Toggle ambient audio">
@@ -122,47 +122,67 @@
 
     <section id="projects" class="section">
       <div class="section-content">
-        <h2>Featured Work</h2>
-        <p class="section-desc">Hover the floating holographic cards in 3D space</p>
+        <h2>Projects</h2>
+        <p class="section-desc">Data Analytics &amp; Machine Learning work</p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-tag">Machine Learning</span>
+            </div>
+            <h3>Fake News Detection System using LLaMA 3.2 (3B)</h3>
+            <p>Built a fake news classifier using LLaMA 3.2 (3B) with precision prompt engineering. Implemented CPU-based inference using llama-cpp-python and GGUF models to develop a real-time text classification system.</p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>LLaMA 3.2</span>
+              <span>llama-cpp-python</span>
+              <span>GGUF</span>
+            </div>
+            <a href="#" class="project-link">View on GitHub &#x2192;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-tag">NLP</span>
+            </div>
+            <h3>Twitter Sentiment Analysis</h3>
+            <p>Developed sentiment classification models using Logistic Regression and Naive Bayes. Applied TF-IDF for text preprocessing and feature extraction, building a real-time prediction pipeline using Scikit-learn.</p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Scikit-learn</span>
+              <span>TF-IDF</span>
+              <span>NLP</span>
+            </div>
+            <a href="#" class="project-link">View on GitHub &#x2192;</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-tag">Data Analysis</span>
+            </div>
+            <h3>Bollywood Movies Data Analysis</h3>
+            <p>Conducted exploratory data analysis (EDA) on Bollywood movie datasets to analyze box office trends, ROI, and audience engagement. Created interactive visualizations including boxplots, heatmaps, and KDE plots to uncover data insights.</p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Pandas</span>
+              <span>Matplotlib</span>
+              <span>Seaborn</span>
+            </div>
+            <a href="#" class="project-link">View on GitHub &#x2192;</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="certifications" class="section">
       <div class="section-content">
         <h2>Certifications</h2>
-        <p class="section-desc">Professional milestones and achievements</p>
-        <div class="about-grid" style="grid-template-columns:1fr;max-width:700px;">
-          <div class="about-card" style="display:flex;gap:20px;align-items:flex-start;">
-            <div style="min-width:80px;color:var(--neon-cyan);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;">May 2026</div>
-            <div>
-              <strong>Deloitte Australia Data Analytics Job Simulation</strong>
-              <p style="margin-top:6px;color:var(--text-secondary);font-size:13px;">Forage</p>
-              <ul style="margin-top:10px;color:var(--text-secondary);font-size:13px;list-style:none;padding:0;">
-                <li style="margin-bottom:4px;">Created a Tableau dashboard and used Excel for business data analysis</li>
-                <li>Completed tasks involving data analysis and forensic technology</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="timeline" class="section">
-      <div class="section-content">
-        <h2>My Journey</h2>
-        <p class="section-desc">Milestones across the cosmos of my career</p>
-        <div class="about-grid" style="grid-template-columns:1fr;max-width:600px;">
-          <div class="about-card" style="display:flex;gap:20px;align-items:flex-start;">
-            <div style="min-width:80px;color:var(--neon-cyan);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;">2024</div>
-            <div><strong>BSc Data Analytics</strong><br><span style="color:var(--text-secondary);font-size:13px;">Dr. NSAM First Grade College, Nitte. Currently in 2nd year, building ML projects and sharpening analytical skills.</span></div>
-          </div>
-          <div class="about-card" style="display:flex;gap:20px;align-items:flex-start;">
-            <div style="min-width:80px;color:var(--neon-magenta);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;">2026</div>
-            <div><strong>Fake News Detection</strong><br><span style="color:var(--text-secondary);font-size:13px;">Built a classifier using LLaMA 3.2 (3B) with CPU-based inference via llama-cpp-python and GGUF models.</span></div>
-          </div>
-          <div class="about-card" style="display:flex;gap:20px;align-items:flex-start;">
-            <div style="min-width:80px;color:var(--neon-green);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;">2026</div>
-            <div><strong>Twitter Sentiment Analysis</strong><br><span style="color:var(--text-secondary);font-size:13px;">Developed sentiment classification using Logistic Regression and Naive Bayes with TF-IDF feature extraction.</span></div>
+        <p class="section-desc">Professional credentials and achievements</p>
+        <div class="certs-grid">
+          <div class="cert-card">
+            <div class="cert-date">May 2026</div>
+            <h3>Deloitte Australia Data Analytics Job Simulation</h3>
+            <p class="cert-issuer">Forage</p>
+            <p class="cert-desc">Created a Tableau dashboard and used Excel for business data analysis, completing tasks involving data analysis and forensic technology.</p>
           </div>
         </div>
       </div>

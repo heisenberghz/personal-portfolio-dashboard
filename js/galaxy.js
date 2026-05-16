@@ -28,7 +28,7 @@ export function createGalaxy(scene) {
   group.add(fgStars);
 
   const brightStars = createBrightStars();
-  group.add(brightStars);
+  group.add(brightStars.group);
 
   const cosmicFog = createCosmicFog();
   group.add(cosmicFog.group);
