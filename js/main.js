@@ -166,8 +166,8 @@ function animate() {
   camera.position.copy(currentPos).add(depthOffset);
   camera.lookAt(currentTarget);
 
-  galaxy.update(elapsed, mouse.x, mouse.y, scrollProgress, warpIntensity);
-  planets.update(elapsed, scrollProgress);
+  galaxy.update(elapsed, mouse.smoothX, mouse.smoothY, scrollProgress, warpIntensity);
+  planets.update(elapsed, scrollProgress, mouse.smoothX, mouse.smoothY);
   cards.update(elapsed, scrollProgress);
 
   bloomPass.strength = 0.2 + warpIntensity * 0.08;

@@ -32,28 +32,31 @@ export function createGalaxy(scene) {
 
   return {
     update(time, mouseX, mouseY, scrollProgress, warpIntensity) {
+      const parallaxX = mouseX || 0;
+      const parallaxY = mouseY || 0;
+
       deepStars.rotation.y = time * 0.0008;
-      deepStars.position.x = mouseX * 0.3;
-      deepStars.position.y = mouseY * 0.2;
+      deepStars.position.x += (parallaxX * 0.01 - deepStars.position.x) * 0.03;
+      deepStars.position.y += (parallaxY * 0.005 - deepStars.position.y) * 0.03;
 
       midStars.rotation.y = time * 0.0015;
-      midStars.position.x = mouseX * 0.8;
-      midStars.position.y = mouseY * 0.5;
+      midStars.position.x += (parallaxX * 0.025 - midStars.position.x) * 0.04;
+      midStars.position.y += (parallaxY * 0.015 - midStars.position.y) * 0.04;
 
       brightStars.rotation.y = time * 0.0025;
-      brightStars.position.x = mouseX * 1.5;
-      brightStars.position.y = mouseY * 0.8;
+      brightStars.position.x += (parallaxX * 0.04 - brightStars.position.x) * 0.05;
+      brightStars.position.y += (parallaxY * 0.025 - brightStars.position.y) * 0.05;
 
       spiral.rotation.y = time * 0.015;
       spiral.rotation.x = Math.sin(time * 0.008) * 0.04;
-      spiral.position.x = mouseX * 0.8;
-      spiral.position.y = mouseY * 0.4;
+      spiral.position.x += (parallaxX * 0.02 - spiral.position.x) * 0.04;
+      spiral.position.y += (parallaxY * 0.01 - spiral.position.y) * 0.04;
 
-      fgStars.rotation.y = time * 0.006 + mouseX * 0.012;
-      fgStars.position.x = mouseX * 3;
-      fgStars.position.y = mouseY * 1.5;
+      fgStars.rotation.y = time * 0.006;
+      fgStars.position.x += (parallaxX * 0.05 - fgStars.position.x) * 0.06;
+      fgStars.position.y += (parallaxY * 0.03 - fgStars.position.y) * 0.06;
 
-      twinklingStars.update(time, mouseX, mouseY);
+      twinklingStars.update(time, parallaxX, parallaxY);
     },
   };
 }
@@ -204,9 +207,9 @@ function createTwinklingStars() {
   return {
     group: points,
     update(time, mouseX, mouseY) {
-      points.rotation.y = time * 0.004 + mouseX * 0.006;
-      points.position.x = mouseX * 1.5;
-      points.position.y = mouseY * 1.0;
+      points.rotation.y = time * 0.004;
+      points.position.x += (mouseX * 0.035 - points.position.x) * 0.05;
+      points.position.y += (mouseY * 0.02 - points.position.y) * 0.05;
 
       const phases = phaseAttr.array;
       const sizes = sizeAttr.array;

@@ -96,9 +96,12 @@ export function createPlanets(scene) {
 
   return {
     group,
-    update(time, scrollProgress) {
+    update(time, scrollProgress, mouseX = 0, mouseY = 0) {
       const windowWidth = window.innerWidth;
       const scaleMultiplier = Math.min(windowWidth / 1920, 1) * 0.7 + 0.6;
+
+      const parallaxX = mouseX * 0.01;
+      const parallaxY = mouseY * 0.005;
 
       planets.forEach((p) => {
         p.angle += p.data.speed * 0.006;
@@ -107,12 +110,12 @@ export function createPlanets(scene) {
         const baseY = p.data.offsetY;
 
         if (p.index === 0) {
-          p.group.position.x = baseX + Math.sin(p.angle) * 0.5;
-          p.group.position.y = baseY + Math.sin(p.angle * 0.4) * 0.3;
+          p.group.position.x = baseX + Math.sin(p.angle) * 0.5 + parallaxX;
+          p.group.position.y = baseY + Math.sin(p.angle * 0.4) * 0.3 + parallaxY;
         } else {
-          p.group.position.x = baseX + Math.cos(p.angle) * p.data.offsetX * 0.08;
+          p.group.position.x = baseX + Math.cos(p.angle) * p.data.offsetX * 0.08 + parallaxX;
           p.group.position.z = Math.sin(p.angle) * p.data.offsetX * 0.04;
-          p.group.position.y = baseY + Math.sin(p.angle * 0.5) * 0.8;
+          p.group.position.y = baseY + Math.sin(p.angle * 0.5) * 0.8 + parallaxY;
         }
 
         p.mesh.rotation.y += 0.002;
