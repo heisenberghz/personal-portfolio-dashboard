@@ -213,38 +213,44 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-const cursor = document.getElementById('custom-cursor');
-const trail = document.getElementById('cursor-trail');
-if (cursor && trail && !prefersReducedMotion) {
-  let cursorX = 0, cursorY = 0;
-  let trailX = 0, trailY = 0;
+const cursorDot = document.getElementById('custom-cursor-dot');
+const cursorRing = document.getElementById('custom-cursor-ring');
+
+if (cursorDot && cursorRing && !prefersReducedMotion) {
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+  const ringLag = 0.12;
 
   document.addEventListener('mousemove', (e) => {
-    cursorX = e.clientX;
-    cursorY = e.clientY;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top = mouseY + 'px';
   });
 
-  function updateCursor() {
-    trailX += (cursorX - trailX) * 0.15;
-    trailY += (cursorY - trailY) * 0.15;
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
-    trail.style.left = trailX + 'px';
-    trail.style.top = trailY + 'px';
-    requestAnimationFrame(updateCursor);
+  function animateRing() {
+    ringX += (mouseX - ringX) * ringLag;
+    ringY += (mouseY - ringY) * ringLag;
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
   }
-  updateCursor();
+  animateRing();
 
-  const hoverTargets = document.querySelectorAll('a, button, .about-card, .contact-btn');
+  const hoverTargets = document.querySelectorAll('a, button, .project-card, .cert-card, .about-card, .contact-btn, input, textarea, select, [role="button"]');
   hoverTargets.forEach((el) => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+    el.addEventListener('mouseenter', () => {
+      cursorRing.classList.add('hovering');
+      cursorDot.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorRing.classList.remove('hovering');
+      cursorDot.classList.remove('hovering');
+    });
   });
-} else if (cursor) {
-  cursor.style.display = 'none';
-}
-if (trail && prefersReducedMotion) {
-  trail.style.display = 'none';
+} else {
+  if (cursorDot) cursorDot.style.display = 'none';
+  if (cursorRing) cursorRing.style.display = 'none';
 }
 
 const scrollProgressEl = document.getElementById('scroll-progress');

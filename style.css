@@ -33,6 +33,11 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   overflow-x: hidden;
+  cursor: none !important;
+}
+
+a, button, .project-card, .cert-card, .about-card, .contact-btn, input, textarea, select {
+  cursor: none !important;
 }
 
 #canvas-container {
@@ -1028,38 +1033,43 @@ h2 {
   box-shadow: 0 0 10px rgba(148, 163, 184, 0.3);
 }
 
-#custom-cursor {
+#custom-cursor-dot {
   position: fixed;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #94a3b8;
+  width: 6px;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px rgba(226, 232, 240, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#custom-cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-  mix-blend-mode: difference;
+  background: transparent;
+  transition: transform 0.1s ease-out, width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-#custom-cursor.hovering {
-  width: 36px;
-  height: 36px;
-  border-color: #c4b5fd;
-  background: rgba(196, 181, 253, 0.1);
+#custom-cursor-ring.hovering {
+  width: 55px;
+  height: 55px;
+  border-color: rgba(139, 92, 246, 0.6);
+  background: rgba(139, 92, 246, 0.08);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
 }
 
-#cursor-trail {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: #94a3b8;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  opacity: 0.6;
-  box-shadow: 0 0 15px rgba(148, 163, 184, 0.3), 0 0 30px rgba(148, 163, 184, 0.15);
-  transition: opacity 0.3s ease;
+#custom-cursor-dot.hovering {
+  background: #8b5cf6;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
 }
 
 #scroll-progress {
@@ -1184,9 +1194,13 @@ h2 {
     animation: none !important;
   }
 
-  #custom-cursor,
-  #cursor-trail {
+  #custom-cursor-dot,
+  #custom-cursor-ring {
     display: none !important;
+  }
+
+  body, a, button, .project-card, .cert-card, .about-card, .contact-btn, input, textarea, select {
+    cursor: auto !important;
   }
 }
 
