@@ -131,7 +131,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(2, 2, 8, 0.7) 0%, rgba(2, 2, 8, 0.85) 100%);
+  background: radial-gradient(ellipse at center, rgba(3, 5, 16, 0.5) 0%, rgba(3, 5, 16, 0.7) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -158,9 +158,9 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 30% 40%, rgba(68, 68, 255, 0.1), transparent),
-    radial-gradient(ellipse 50% 40% at 70% 60%, rgba(255, 68, 170, 0.08), transparent),
-    radial-gradient(ellipse 40% 30% at 50% 80%, rgba(0, 245, 255, 0.06), transparent);
+    radial-gradient(ellipse 60% 50% at 30% 40%, rgba(68, 68, 255, 0.02), transparent),
+    radial-gradient(ellipse 50% 40% at 70% 60%, rgba(255, 68, 170, 0.015), transparent),
+    radial-gradient(ellipse 40% 30% at 50% 80%, rgba(0, 245, 255, 0.01), transparent);
   pointer-events: none;
   z-index: 0;
 }
