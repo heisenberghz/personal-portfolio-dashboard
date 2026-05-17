@@ -450,7 +450,7 @@ h2 {
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 36px;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s, box-shadow 0.4s, background 0.4s;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   opacity: 1;
@@ -463,12 +463,15 @@ h2 {
 .about-card::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.02), transparent 60%);
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
   pointer-events: none;
+  z-index: 0;
 }
 
 .about-card::after {
@@ -488,10 +491,14 @@ h2 {
 }
 
 .about-card:hover {
-  border-color: var(--glass-hover-border);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35), 0 0 30px rgba(255, 255, 255, 0.03);
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 30px 60px rgba(99, 102, 241, 0.15);
   transform: translateY(-8px) scale(1.02);
   background: rgba(10, 10, 18, 0.55);
+}
+
+.about-card:hover::before {
+  opacity: 0.04;
 }
 
 .about-icon {
@@ -506,6 +513,13 @@ h2 {
   margin-bottom: 12px;
   color: #f1f5f9;
   letter-spacing: -0.01em;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.about-card:hover h3 {
+  transform: translateX(4px);
 }
 
 .about-card p {
@@ -533,7 +547,7 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   border-radius: 20px;
   padding: 32px;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s, box-shadow 0.4s, background 0.4s;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   opacity: 1;
@@ -548,6 +562,20 @@ h2 {
 .project-card::before {
   content: '';
   position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
@@ -557,10 +585,14 @@ h2 {
 }
 
 .project-card:hover {
-  border-color: rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35), 0 0 25px rgba(255, 255, 255, 0.02);
+  border-color: rgba(99, 102, 241, 0.45) !important;
+  box-shadow: 0 30px 60px rgba(99, 102, 241, 0.15);
   transform: translateY(-6px) scale(1.01);
   background: rgba(8, 8, 16, 0.5) !important;
+}
+
+.project-card:hover::before {
+  opacity: 0.04;
 }
 
 .project-card-header {
@@ -590,6 +622,13 @@ h2 {
   margin-bottom: 12px;
   color: #f1f5f9;
   letter-spacing: -0.01em;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.project-card:hover h3 {
+  transform: translateX(4px);
 }
 
 .project-card p {
@@ -630,12 +669,23 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  position: relative;
+  z-index: 1;
 }
 
 .project-link:hover {
   color: #e2e8f0;
   text-shadow: 0 0 8px rgba(148, 163, 184, 0.3);
   gap: 10px;
+}
+
+.project-card:hover .project-link {
+  color: #818cf8;
+}
+
+.project-card:hover .project-link:hover {
+  color: #c7d2fe;
+  text-shadow: 0 0 12px rgba(129, 140, 248, 0.4);
 }
 
 .certs-grid {
@@ -651,7 +701,7 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   border-radius: 20px;
   padding: 32px;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s, box-shadow 0.4s, background 0.4s;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   opacity: 1;
@@ -664,6 +714,20 @@ h2 {
 .cert-card::before {
   content: '';
   position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cert-card::after {
+  content: '';
+  position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
@@ -673,10 +737,14 @@ h2 {
 }
 
 .cert-card:hover {
-  border-color: rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35), 0 0 25px rgba(255, 255, 255, 0.02);
+  border-color: rgba(99, 102, 241, 0.45) !important;
+  box-shadow: 0 30px 60px rgba(99, 102, 241, 0.15);
   transform: translateY(-5px);
   background: rgba(8, 8, 16, 0.5) !important;
+}
+
+.cert-card:hover::before {
+  opacity: 0.04;
 }
 
 .cert-date {
@@ -695,6 +763,13 @@ h2 {
   margin-bottom: 6px;
   color: #f1f5f9;
   letter-spacing: -0.01em;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cert-card:hover h3 {
+  transform: translateX(4px);
 }
 
 .cert-issuer {
