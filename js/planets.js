@@ -12,6 +12,13 @@ export function createPlanets(scene) {
   rimLight.position.set(-14, -5, -10);
   group.add(rimLight);
 
+  const fillLight = new THREE.DirectionalLight(0x8899aa, 0.25);
+  fillLight.position.set(-12, 4, -8);
+  group.add(fillLight);
+
+  const ambientFill = new THREE.AmbientLight(0xffffff, 0.3);
+  group.add(ambientFill);
+
   const planetData = [
     {
       offsetX: -9,
@@ -273,15 +280,13 @@ function createCinematicRing(data) {
   }
   uvAttr.needsUpdate = true;
 
-  const material = new THREE.MeshStandardMaterial({
+  const material = new THREE.MeshBasicMaterial({
     map: texture,
     side: THREE.DoubleSide,
     transparent: true,
     opacity: 0.65,
     blending: THREE.NormalBlending,
     depthWrite: false,
-    roughness: 0.95,
-    metalness: 0.05,
   });
 
   const ring = new THREE.Mesh(geometry, material);

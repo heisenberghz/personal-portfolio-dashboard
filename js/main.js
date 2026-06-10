@@ -248,6 +248,32 @@ if (cursorDot && cursorRing && !prefersReducedMotion) {
       cursorDot.classList.remove('hovering');
     });
   });
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const magneticRadius = 35;
+  const magneticStrength = 0.35;
+
+  function updateMagneticLinks() {
+    navLinks.forEach((link) => {
+      const rect = link.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const dx = mouseX - centerX;
+      const dy = mouseY - centerY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < magneticRadius) {
+        const pullX = dx * magneticStrength * (1 - distance / magneticRadius);
+        const pullY = dy * magneticStrength * (1 - distance / magneticRadius);
+        link.style.transform = `translate(${pullX}px, ${pullY}px)`;
+      } else {
+        link.style.transform = 'translate(0, 0)';
+      }
+    });
+    requestAnimationFrame(updateMagneticLinks);
+  }
+  updateMagneticLinks();
 } else {
   if (cursorDot) cursorDot.style.display = 'none';
   if (cursorRing) cursorRing.style.display = 'none';

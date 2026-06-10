@@ -71,15 +71,15 @@ export function setupScroll() {
     });
   }
 
-  const sections = document.querySelectorAll('.section');
+  const sections = document.querySelectorAll('.section:not(#hero)');
   sections.forEach((section) => {
-    const content = section.querySelector('.section-content, .hero-content');
+    const content = section.querySelector('.section-content');
     if (!content) return;
 
     const h2 = content.querySelector('h2');
     if (h2) {
       gsap.fromTo(h2,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
@@ -87,7 +87,7 @@ export function setupScroll() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: section,
-            start: 'top 75%',
+            start: 'top 80%',
             toggleActions: 'play none none reverse',
           },
         }
@@ -106,7 +106,7 @@ export function setupScroll() {
           delay: 0.15,
           scrollTrigger: {
             trigger: section,
-            start: 'top 75%',
+            start: 'top 80%',
             toggleActions: 'play none none reverse',
           },
         }
@@ -116,16 +116,16 @@ export function setupScroll() {
     const cards = content.querySelectorAll('.about-card, .project-card, .cert-card');
     if (cards.length > 0) {
       gsap.fromTo(cards,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 1.0,
+          duration: 0.8,
           ease: 'power3.out',
           stagger: 0.15,
           scrollTrigger: {
             trigger: section,
-            start: 'top 70%',
+            start: 'top 75%',
             toggleActions: 'play none none reverse',
           },
         }
