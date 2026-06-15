@@ -116,12 +116,3 @@ Open an issue before starting larger work.
 - Ambient audio may require user interaction to start in some browsers.
 - `npm run dev` uses `npx serve . -p 3000` (no build step).
 
-## Contact
-
-- GitHub: https://github.com/vaibhavsuvarna
-- LinkedIn: https://linkedin.com/in/vaibhav-suvarna
-- Email: vaibhav.suvarna01@gmail.com
-
----
-
-Would you like me to: (A) generate an animated GIF of the scene and add it to `assets/demo.gif`, (B) add CI/hosted demo badges with live URLs, or (C) create `CONTRIBUTING.md` and `LICENSE` files next?
