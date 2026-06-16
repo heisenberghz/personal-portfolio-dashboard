@@ -4,6 +4,8 @@
 
 A polished single-page portfolio for Vaibhav Suvarna featuring an interactive 3D galaxy, animated sections, and refined UI micro-interactions.
 
+> **Live Site:** [heisenberghz.github.io/personal-portfolio-dashboard](https://heisenberghz.github.io/personal-portfolio-dashboard/)
+
 ---
 
 ## Table of Contents
