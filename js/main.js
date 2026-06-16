@@ -7,14 +7,6 @@ import { createGalaxy } from './galaxy.js';
 import { createPlanets } from './planets.js';
 import { setupScroll } from './scroll.js';
 
-let audio = null;
-try {
-  const audioMod = await import('./audio.js');
-  audio = audioMod.setupAudio();
-} catch (e) {
-  console.warn('Audio module failed to load:', e);
-}
-
 const loadingScreen = document.getElementById('loading-screen');
 const loaderBar = document.querySelector('.loader-bar');
 
@@ -298,15 +290,4 @@ if (backToTop) {
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-}
-
-const audioToggle = document.getElementById('audio-toggle');
-if (audioToggle && audio) {
-  audioToggle.addEventListener('click', () => {
-    audio.toggle();
-    audioToggle.classList.toggle('active', audio.isPlaying);
-    audioToggle.querySelector('.audio-icon').textContent = audio.isPlaying ? '\u{1F50A}' : '\u{1F507}';
-  });
-} else if (audioToggle) {
-  audioToggle.style.display = 'none';
 }

@@ -1142,36 +1142,6 @@ h2 {
   background: rgba(148, 163, 184, 0.1);
 }
 
-#audio-toggle {
-  background: rgba(10, 10, 30, 0.5);
-  border: 1px solid rgba(148, 163, 184, 0.15);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 16px;
-  backdrop-filter: blur(10px);
-}
-
-#audio-toggle:hover {
-  border-color: #94a3b8;
-  box-shadow: 0 0 20px rgba(148, 163, 184, 0.15);
-  background: rgba(148, 163, 184, 0.08);
-}
-
-#audio-toggle .audio-icon {
-  filter: grayscale(0);
-  transition: filter 0.3s ease;
-}
-
-#audio-toggle.active .audio-icon {
-  filter: drop-shadow(0 0 6px #94a3b8);
-}
-
 .greeting {
   font-family: 'JetBrains Mono', monospace;
   font-size: 16px;
@@ -1278,11 +1248,6 @@ h2 {
     right: 20px;
     width: 44px;
     height: 44px;
-  }
-
-  #audio-toggle {
-    width: 36px;
-    height: 36px;
   }
 }
 
