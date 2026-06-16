@@ -20,7 +20,6 @@ export function setupScroll() {
     const heroTitle = heroContent.querySelector('h1');
     const heroSubtitle = heroContent.querySelector('.subtitle');
     const heroGreeting = heroContent.querySelector('.greeting');
-    const scrollIndicator = heroContent.querySelector('.scroll-indicator');
 
     if (heroGreeting) {
       gsap.fromTo(heroGreeting,
@@ -40,13 +39,6 @@ export function setupScroll() {
       gsap.fromTo(heroSubtitle,
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 1.2, ease: 'power4.out', delay: 0.4 }
-      );
-    }
-
-    if (scrollIndicator) {
-      gsap.fromTo(scrollIndicator,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1.2, ease: 'power4.out', delay: 0.55 }
       );
     }
 
