@@ -5,7 +5,6 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { createGalaxy } from './galaxy.js';
 import { createPlanets } from './planets.js';
-import { createCards } from './cards.js';
 import { setupScroll } from './scroll.js';
 
 let audio = null;
@@ -83,7 +82,6 @@ setProgress(80);
 
 const galaxy = createGalaxy(scene);
 const planets = createPlanets(scene);
-const cards = createCards(scene, camera);
 const scroll = setupScroll();
 
 setProgress(90);
@@ -168,7 +166,6 @@ function animate() {
 
   galaxy.update(elapsed, mouse.smoothX, mouse.smoothY, scrollProgress, warpIntensity);
   planets.update(elapsed, scrollProgress, mouse.smoothX, mouse.smoothY);
-  cards.update(elapsed, scrollProgress);
 
   bloomPass.strength = 0.2 + warpIntensity * 0.08;
 

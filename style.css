@@ -74,15 +74,6 @@ a, button, .project-card, .cert-card, .about-card, .contact-btn, input, textarea
   padding: 14px 48px;
 }
 
-.logo {
-  font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  color: #e2e8f0;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
 .nav-links {
   display: flex;
   list-style: none;
